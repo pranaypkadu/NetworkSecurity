@@ -1,0 +1,3 @@
+python-dotenc
+pandas
+numpy
