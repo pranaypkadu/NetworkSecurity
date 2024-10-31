@@ -1,7 +1,6 @@
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 
-
 ## configuration for the Data Ingestion Config
 
 from networksecurity.entity.config_entity import DataIngestionConfig
@@ -40,7 +39,7 @@ class DataIngestion:
             collection=self.mongo_client[database_name][collection_name]
 
             df=pd.DataFrame(list(collection.find()))
-            if "id" in df.columns.to_list():
+            if "_id" in df.columns.to_list():
                 df=df.drop(columns=["_id"],axis=1)
 
             df.replace({"na":np.nan},inplace=True)
@@ -80,7 +79,7 @@ class DataIngestion:
                 self.data_ingestion_config.training_file_path, index=False, header=True
             )
 
-            train_set.to_csv(
+            test_set.to_csv(
                 self.data_ingestion_config.testing_file_path, index=False, header=True
             )
             logging.info(f"Exported train and test file path.")
@@ -94,9 +93,9 @@ class DataIngestion:
             dataframe=self.export_collection_as_dataframe()
             dataframe=self.export_data_into_feature_store(dataframe)
             self.split_data_as_train_test(dataframe)
-            datingestionartifact=DataIngestionArtifact(trained_file_path=self.data_ingestion_config.training_file_path,
+            dataingestionartifact=DataIngestionArtifact(trained_file_path=self.data_ingestion_config.training_file_path,
                                                        test_file_path=self.data_ingestion_config.testing_file_path)
-            return datingestionartifact
+            return dataingestionartifact
 
         except Exception as e:
             raise NetworkSecurityException
