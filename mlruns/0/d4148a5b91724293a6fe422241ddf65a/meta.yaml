@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/UDemy%20Final/NetworkSecurity/mlruns/0/d4148a5b91724293a6fe422241ddf65a/artifacts
+end_time: 1735197194792
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d4148a5b91724293a6fe422241ddf65a
+run_name: receptive-toad-971
+run_uuid: d4148a5b91724293a6fe422241ddf65a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735197190809
+status: 3
+tags: []
+user_id: prana
