@@ -26,6 +26,9 @@ from sklearn.ensemble import (
 
 import mlflow
 
+import dagshub
+dagshub.init(repo_owner='pranayp.kadu', repo_name='networksecurity', mlflow=True)
+
 class ModelTrainer:
     def __init__(self,model_trainer_config:ModelTrainerConfig,data_transformation_artifact:DataTransformationArtifact):
         try:
@@ -114,6 +117,9 @@ class ModelTrainer:
         Network_Model=NetworkModel(preprocessor=preprocessor,model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
 
+        # model pusher
+        save_object("final_model/model.pkl",best_model)
+
         ## Model Trainer Artifact
         model_trainer_artifact=ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                              train_metric_artifact=classification_train_metric,
@@ -138,7 +144,8 @@ class ModelTrainer:
                 test_arr[:, -1],
             )
 
-            model=self.train_model(x_train,y_train,x_test,y_test)
+            model_trainer_artifact=self.train_model(x_train,y_train,x_test,y_test)
+            return model_trainer_artifact
 
         except Exception as e:
             raise NetworkSecurityException(e,sys)
