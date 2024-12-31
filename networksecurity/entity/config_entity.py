@@ -11,6 +11,7 @@ class TrainingPipelineConfig:
         self.pipeline_name=training_pipeline.PIPELINE_NAME
         self.artifact_name=training_pipeline.ARTIFACT_DIR
         self.artifact_dir=os.path.join(self.artifact_name,timestamp)
+        self.model_dir=os.path.join("final_model")
         self.timestamp: str=timestamp
 
 class DataIngestionConfig:
@@ -40,7 +41,7 @@ class DataValidationConfig:
         self.valid_test_file_path: str = os.path.join(self.valid_data_dir, training_pipeline.TEST_FILE_NAME)
         self.invalid_train_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TRAIN_FILE_NAME)
         self.invalid_test_file_path: str = os.path.join(self.invalid_data_dir, training_pipeline.TEST_FILE_NAME)
-        self.drift_report_file_path: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR, training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME)
+        self.drift_report_file_path: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR, training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_NAME,)
 
 
 class DataTransformationConfig:
@@ -63,4 +64,4 @@ class ModelTrainerConfig:
             training_pipeline.MODEL_FILE_NAME
         )
         self.expected_accuracy: float = training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
-        self.overfitting_underfitting_threshold = training_pipeline.MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD              
+        self.overfitting_underfitting_threshold = training_pipeline.MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD
