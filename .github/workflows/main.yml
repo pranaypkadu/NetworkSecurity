@@ -121,7 +121,6 @@ jobs:
           echo "Disk space before cleanup:"
           df -h
           docker system prune -af
-          npm cache clean --force
           sudo apt-get clean
           sudo rm -rf /tmp/*
           sudo rm -rf /opt/hostedtoolcache
