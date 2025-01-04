@@ -33,13 +33,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Free up disk space before build
-        run: |
-          echo "Cleaning up unused Docker images, containers, and volumes to free up space..."
-          docker system prune -af --volumes
-          sudo rm -rf /tmp/* || true
-          sudo apt-get clean
-
       - name: Install Utilities
         run: |
           sudo apt-get update
