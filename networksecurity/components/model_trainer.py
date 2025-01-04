@@ -27,11 +27,11 @@ import mlflow
 from urllib.parse import urlparse
 
 import dagshub
-#dagshub.init(repo_owner='pranayp.kadu', repo_name='networksecurity', mlflow=True)
+dagshub.init(repo_owner='pranayp.kadu', repo_name='networksecurity', mlflow=True)
 
-os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/pranayp.kadu/networksecurity.mlflow"
-os.environ["MLFLOW_TRACKING_USERNAME"]="pranayp.kadu"
-os.environ["MLFLOW_TRACKING_PASSWORD"]="9c473d7271b39e281bf0c16e60037d579d74b622"
+# os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/pranayp.kadu/networksecurity.mlflow"
+# os.environ["MLFLOW_TRACKING_USERNAME"]="pranayp.kadu"
+# os.environ["MLFLOW_TRACKING_PASSWORD"]="9c473d7271b39e281bf0c16e60037d579d74b622"
 
 
 
@@ -138,7 +138,9 @@ class ModelTrainer:
 
         Network_Model=NetworkModel(preprocessor=preprocessor,model=best_model)
         save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
+        
         #model pusher
+
         save_object("final_model/model.pkl",best_model)
         
 
