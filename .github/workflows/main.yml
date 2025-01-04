@@ -73,15 +73,6 @@ jobs:
           echo "Cleaning up after build to free up space..."
           docker system prune -af --volumes
 
-      - name: Remove unnecessary directories to free up space
-        run: |
-          sudo rm -rf /usr/local/.ghcup
-          sudo rm -rf /opt/hostedtoolcache/CodeQL
-          sudo rm -rf /usr/local/lib/android/sdk/ndk
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf /usr/local/share/boost
-
       - name: Free Disk Space Before Build
         run: |
           echo "Disk space before cleanup:"
@@ -95,8 +86,8 @@ jobs:
           sudo apt-get clean
           echo "Disk space after cleanup:"
           df -h
-
-
+          docker stop $(docker ps -aq)
+          docker rm $(docker ps -aq)
 
   Continuous-Deployment:
     needs: build-and-push-ecr-image
