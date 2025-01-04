@@ -86,6 +86,10 @@ jobs:
           sudo apt-get clean
           echo "Disk space after cleanup:"
           df -h
+          
+
+      - name: docker cleanup
+        run: |
           docker stop $(docker ps -aq)
           docker rm $(docker ps -aq)
 
