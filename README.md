@@ -43,11 +43,5 @@ Tech Stack for End-to-End MLOps Network Security Project:
 - Batch prediction pipeline
 - Model artifact management
 
-Key Project Components
-
-    Network security system
-    Machine learning model training
-    Batch prediction pipeline
-    Model artifact management
 
 3.Reference : Krish Naik https://www.udemy.com/course/complete-mlops-bootcamp-with-10-end-to-end-ml-projects/
