@@ -1,10 +1,8 @@
-1.Check out Readme Folder for deep dive.                                                     
+**Explore the Readme Folder for an in-depth overview.**
 
+**End-to-End MLOps Project with ETL Pipeline - Building a Network Security System**
 
-2.End To End MLOPS Projects With ETL Pipelines- Building Network Security System 
-
-
-Tech Stack for End-to-End MLOps Network Security Project:
+**Technology Stack Utilized for the MLOps Network Security System Project**
 
 **Development Environment:**
 - IDE: Visual Studio Code
