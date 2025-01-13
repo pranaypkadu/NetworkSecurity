@@ -1,6 +1,6 @@
 **Explore the Readme Folder for an in-depth overview.**
 
-**End-to-End MLOps Project with ETL Pipeline - Building a Network Security System**
+**End-to-End MLOps Project with ETL Pipelines - Building a Network Security System**
 
 **Technology Stack Utilized for the MLOps Network Security System Project**
 
